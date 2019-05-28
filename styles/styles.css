@@ -101,6 +101,7 @@ a {
     height: 4vh;
     padding-top: 0.3vh;
   }
+  
 
   .navigation-logo {
     position: fixed;
@@ -180,15 +181,15 @@ a {
   }
 
   .navigation-sticky {
-    background-color: whitesmoke;
+    background-color: rgb(252, 232, 232);
+    box-shadow: #4b4b4b 0 0 10px;
     position: fixed;
-    width: 88vw;
+    width: 100vw;
     z-index: 3;
-    height: 10vh;
+    height: 50px;
     top: 0;
   }
 
-  
   
   #logo-pic {
     height: 7vh;
@@ -204,10 +205,31 @@ a {
     top: 0;
     right: 5%;
   }
-
-  li a#top-link {
+  
+  
+  .navigation-logo #home-link {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    width: 250px;
+    height: 40px;
+    padding: 6px 0 6px 70px;
+  }
+  
+  #home-link svg {
+    max-height: 90%;
+  }
+  
+  #home-link span {
+    font-size: 1.5em;
+    padding: 7px 0 0 10px;
+    color: #1d1d1d;
+  }
+  
+  #logo-white-dropdown, #h1-dropdown {
     display: none;
   }
+
+  
 
   div.navigation-cross {
     display: none;
@@ -215,13 +237,17 @@ a {
 
   .navigation-item {
     display: inline-block;
-    padding: 4vh 4vw 1vh 4vw;
-    font-size: 0.8em;
+    padding: 15px 70px;
+    font-size: 1.3em;
     color: black;
+  }
+  
+  .home-link{
+    display: none;
   }
 
   .navigation-item a {
-    color: rgb(104, 32, 100);
+    color: #1d1d1d;
   }
 
   .navigation-item a:hover {

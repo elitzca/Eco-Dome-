@@ -21,8 +21,7 @@ let timelineBurgerOpen,
 //   skillsLink,
 //   contactsLink
 // ];
-
-console.log(middleBurgerLine.style);
+console.log(mediaQuery);
 
 function onInit() {
   //addEventListeners
@@ -103,7 +102,8 @@ function closeMenu() {
 
   timelineBurgerClose
     .to(".navigation-items-wrapper", 0.3, {
-      y: "-100vh"
+      y: "-100vh",
+      ease: Power1.easeIn
     })
     .to("#burger-line-top", 0.3, {
       rotation: 0,
@@ -111,7 +111,7 @@ function closeMenu() {
       ease: Power2.easeOut
     }, "-=0.3")
     .to("#burger-line-middle", 0.3, {
-      visibility: "visible"
+      visibility: "visible",
     }, "-=0.3")
     .to("#burger-line-bottom", 0.3, {
       rotation: 0,
