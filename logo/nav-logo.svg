@@ -1,0 +1,18 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225.37 145">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #1d1d1d;
+        stroke-miterlimit: 10;
+        stroke-width: 12px;
+      }
+    </style>
+  </defs>
+  <title>nav-logo</title>
+  <path class="cls-1" d="M646.5,816.5h207c1.75-6.35,12.37-47.44-13-86-30.69-46.65-86-47-90-47-6.82,0-49,.64-80,35C633.53,759.49,645.39,812,646.5,816.5Z" transform="translate(-637.82 -677.5)"/>
+  <line class="cls-1" x1="112.68" y1="6" x2="112.68" y2="139"/>
+  <line class="cls-1" x1="44.68" y1="99" x2="112.43" y2="99"/>
+  <line class="cls-1" x1="112.43" y1="56.25" x2="74.68" y2="56.25"/>
+  <path class="cls-1" d="M785.5,773.5h34s-3-31-34-46Z" transform="translate(-637.82 -677.5)"/>
+</svg>
