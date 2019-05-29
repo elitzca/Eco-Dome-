@@ -69,7 +69,7 @@ function openMenu() {
       visibility: "hidden"
     }, "-=0.3")
 
-    // .fromTo("#logo-white-dropdown", 0.3, {
+    // .fromTo(".logo-white-dropdown", 0.3, {
     //   y: -30
     // }, {
     //     y: 0,
