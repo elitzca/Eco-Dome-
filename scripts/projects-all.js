@@ -44,17 +44,23 @@ function showOneProject(aProject) {
   clone.querySelector(".location").textContent = aProject.acf.location;
   clone.querySelector(".date").textContent = aProject.acf.date;
 
-  clone.querySelector(".description").innerHTML = aProject.content.rendered;
-  // clone
-  //   .querySelector("img")
-  //   .setAttribute(
-  //     "src",
-  //     aProject._embedded["wp:featuredmedia"][0].media_details.sizes.medium
-  //       .source_url
-  //   );
+  clone.querySelector(".excerpt").innerHTML = aProject.excerpt.rendered;
+  // clone.querySelector(".description").innerHTML = aProject.content.rendered;
+  clone
+    .querySelector("img")
+    .setAttribute(
+      "src",
+      aProject._embedded["wp:featuredmedia"][0].media_details.sizes.medium
+        .source_url
+    );
+
   clone.querySelector(".readmore").href = "project.html?id=" + aProject.id;
 
+  // template.style.backgroundImage = "url( `aProject._embedded["wp: featuredmedia"][0].media_details.sizes.medium.source_url`)";
+
   projlist.appendChild(clone);
+
+
 }
 fetchProjects();
 // setInterval(function () {
