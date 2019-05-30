@@ -307,6 +307,10 @@ a {
   line-height: 30vh;
 }
 
+.wl {
+  display: none;
+}
+
 #home-about{
   z-index: 8;
 }
@@ -329,7 +333,7 @@ a {
   
   position: absolute;
   top: 0;
-  left: 92vw;
+  left: 90vw;
   
   z-index: 10;
   background-color: rgba(29, 29, 29, 0.3);
@@ -353,7 +357,8 @@ a {
 .div-arrow {
   position: absolute;
   top: 48%;
-  left: 1%;
+  left: 7%;
+  transform: rotate(180deg);
 }
 
 .arrow-part {
@@ -459,16 +464,85 @@ a {
     margin: 0;
   }
   
+  .wl {
+    display: inherit;
+    z-index: 19;
+    position: absolute;
+    background-color: white;
+  }
+  
+  #wl-left {
+    width: 37.5vw;
+    height: 0.7vh;
+    
+    top: 54vh;
+    left: 0;
+  }
+  
+  #wl-right {
+    width: 37.5vw;
+    height: 0.7vh;
+    
+    top: 54vh;
+    right: 0;
+  }
+  
+  #wl-top {
+    width: 0.7vh;
+    height: 35vh;
+    top: 8vh;
+    left: 50vw;
+  }
+  
+  #wl-bottom {
+    width: 0.7vh;
+    height: 35vh;
+    
+    bottom: 0;
+    right: 50vw;
+  }
+  
   .div-title {
-    line-height: 46vh;
+    width: fit-content;
+    display: block;
+    margin: 21vh auto;
+    line-height: 5vh;
+    font-family: "Montserrat Subrayada", sans-serif;
   }
   
   .div-desc {
     width: 50vw;
     height: 46vh;
-    top: 0;
+    /* top: 0; */
+    top: 100%;
     left: 0;
+    /* opacity: 0; */
   }
+  
+  .dl p{
+    padding: 0 15vw 0 8vw;
+  }
+  
+  .dr p{
+    padding: 5vh 8vw 0 15vw;
+  }
+  
+  .dl li{
+    bottom: 7vh;
+    left: 8vw;
+  }
+  
+  .dr li{
+    bottom: 7vh;
+    left: 15vw;
+  }
+  
+  .div-arrow {
+    position: absolute;
+    top: -5vh;
+    left: 50%;
+    transform: rotate(-90deg);
+}
 }
 
 
