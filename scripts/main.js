@@ -4,10 +4,10 @@ let tlOpen,
     tlDetails,
     tlShowDescM,
     tlHideDet;
-const divAbout = document.querySelector("#home-about"),
-    divProjects = document.querySelector("#home-projects"),
-    divParts = document.querySelector("#home-parts"),
-    divCont = document.querySelector("#home-contacts");
+const divAbout = document.querySelector("#home-about .div-desc"),
+    divProjects = document.querySelector("#home-projects .div-desc"),
+    divParts = document.querySelector("#home-parts .div-desc"),
+    divCont = document.querySelector("#home-contacts .div-desc");
 const arrAbout = document.querySelector("#home-about .div-arrow"),
     arrProjects = document.querySelector("#home-projects .div-arrow"),
     arrParts = document.querySelector("#home-parts .div-arrow"),
@@ -44,7 +44,7 @@ function animateLandingPage() {
                 x: -80,
                 y: -50,
                 ease: Power1.easeOut
-            }, 0.06)
+            }, 0.06);
 
         function loopDivs() {
             divArray.forEach(div => {
@@ -52,88 +52,80 @@ function animateLandingPage() {
                 div.addEventListener("mouseleave", hideDetails);
 
 
-                //desc div on top, should fade in;
-
-                // function showDetails(event) {
-                //     tlDetails = new TimelineLite();
-
-                //     console.log(event.target);
-                //     tlDetails
-                //         .to(event.target, 0.3, {
-                //             opacity: 1,
-                //             ease: Power1.easeIn
-                //         })
-                //     // .to(event.target[".div-title"], 0.3, {
-                //     //     opacity: 0,
-                //     //     ease: Power1.easeIn
-                //     // });
-                // }
-
-                // 
-
-                // desc div bellow - should slide up /// line 513 css
                 function showDetails(event) {
-
                     tlDetails = new TimelineLite();
-                    // console.log(event.target.hasChildNodes());
-                    // console.log(event.target.childNodes);
 
-                    if (event.target.hasChildNodes()) {
-                        let children = event.target.childNodes;
-
-                        for (var i = 0; i < children.length; i++) {
-                            tlDetails = new TimelineLite();
-                            console.log(children);
-
-                            tlDetails
-                                .to(children[3], 0.3, {
-                                    top: "0%",
-                                    ease: Power1.easeIn
-                                })
-                                .to(children[1], 0.2, {
-                                    y: 50
-                                }, "-=0.3");
-                        }
-                    }
-
+                    tlDetails
+                        .to(event.target, 0.3, {
+                            top: "-46vh",
+                            ease: Power1.easeIn
+                        })
+                        ;
                 }
 
                 function hideDetails() {
 
-                    if (event.target.hasChildNodes()) {
-                        let children = event.target.childNodes;
 
-                        for (var i = 0; i < children.length; i++) {
-                            tlHideDet = new TimelineLite();
-                            // console.log(children);
+                    tlHideDet = new TimelineLite();
 
-                            tlDetails
-                                .to(children[3], 0.1, {
-                                    top: "100%",
-                                    ease: Power1.easeIn
-                                });
+                    tlDetails
+                        .to(event.target, 0.1, {
+                            top: 0,
+                            ease: Power1.easeIn
+                        });
 
-                        }
-                    }
                 }
             });
         }
-    } else {
-        arrArray.forEach(arr => {
-            arr.addEventListener("click", showDescMobile);
 
-            function showDescMobile(event) {
-                tlShowDescM = new TimelineLite();
+        // desc div bellow - should slide up /// line 513 css
+        // function showDetails(event) {
 
-                tlShowDescM
-                    .to(".div-desc", 0.5, {
-                        left: "0"
-                    })
-            }
-        })
+        //     tlDetails = new TimelineLite();
+        //     console.log(event.target);
+        //     // console.log(event.target.hasChildNodes());
+        //     // console.log(event.target.childNodes);
+
+        //     if (event.target.hasChildNodes()) {
+        //         let children = event.target.childNodes;
+
+        //         for (var i = 0; i < children.length; i++) {
+        //             console.log(children);
+
+        //             tlDetails
+        //                 .to(children[1], 0.3, {
+        //                     top: "-14vh",
+        //                     ease: Power1.easeIn
+        //                 })
+        //             // .to(children[1], 0.2, {
+        //             //     y: 50
+        //             // }, "-=0.3");
+        //         }
+        //     }
+
+        // }
+
 
     }
+    // else {
+    //     arrArray.forEach(arr => {
+    //         arr.addEventListener("click", showDescMobile);
+
+    //         function showDescMobile(event) {
+    //             tlShowDescM = new TimelineLite();
+
+    //             tlShowDescM
+    //                 .to(".div-desc", 0.5, {
+    //                     left: "0"
+    //                 })
+    //         }
+    //     })
+
+    // }
 }
+
+
+
 
 
 
