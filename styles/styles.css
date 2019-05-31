@@ -396,18 +396,19 @@ a {
 }
 
 #home-about {
-  background-image: url(../hdr-all/hdr-pamporovo-3.jpg)
+  background-image: url(../hdr-all/hdr-pamporovo-3.jpg);
 }
 
 #home-projects {
-  background-image: url(../hdr-all/hdr-portrait-9.jpg)
+  background-image: url(../hdr-all/hdr-portrait-9.jpg);
 }
+
 #home-parts {
-  background-image: url(../hdr-all/hdr-shumen-15.jpg)
+  background-image: url(../hdr-all/hdr-shumen-15.jpg);
 }
 
 #home-contacts {
-  background-image: url(../hdr-all/hdr-portrait-1.jpg)
+  background-image: url(../hdr-all/hdr-portrait-1.jpg);
 }
 
 
@@ -503,11 +504,35 @@ a {
   }
   
   .div-title {
-    width: fit-content;
+    width: initial;
     display: block;
-    margin: 21vh auto;
+    margin: 30vh auto 0;
+    padding: 2vh 3vw;
     line-height: 5vh;
-    font-family: "Montserrat Subrayada", sans-serif;
+    /* 1 Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.8+19,0.7+40,0.4+74,0+100 */
+/* background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 19%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.4) 74%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+/* background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 19%,rgba(0,0,0,0.7) 40%,rgba(0,0,0,0.4) 74%,rgba(0,0,0,0) 100%); Chrome10-25,Safari5.1-6 */
+/* background: radial-gradient(ellipse at center,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 19%,rgba(0,0,0,0.7) 40%,rgba(0,0,0,0.4) 74%,rgba(0,0,0,0) 100%); W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+/* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=1 ); IE6-9 fallback on horizontal gradient */
+
+/* 2 Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.8+19,0.7+40,0.4+56,0+88 */
+/* background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 19%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.4) 56%, rgba(0,0,0,0) 88%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+/* background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 19%,rgba(0,0,0,0.7) 40%,rgba(0,0,0,0.4) 56%,rgba(0,0,0,0) 88%,rgba(0,0,0,0) 100%); Chrome10-25,Safari5.1-6 */
+/* background: radial-gradient(ellipse at center,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 19%,rgba(0,0,0,0.7) 40%,rgba(0,0,0,0.4) 56%,rgba(0,0,0,0) 88%,rgba(0,0,0,0) 100%); W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+/* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=1 ); IE6-9 fallback on horizontal gradient */ */ */
+
+
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+12,0.6+56 */
+background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 12%, rgba(0,0,0,0.6) 56%, rgba(0,0,0,0.6) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 12%,rgba(0,0,0,0.6) 56%,rgba(0,0,0,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 12%,rgba(0,0,0,0.6) 56%,rgba(0,0,0,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#99000000',GradientType=0 ); /* IE6-9 */
+
+    /* font-family: "Cinzel", serif;
+  font-family: "Montaga", serif;
+  font-family: "Montserrat Subrayada", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Questrial", sans-serif; */
   }
   
   .div-desc {
