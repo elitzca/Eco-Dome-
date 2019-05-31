@@ -1,7 +1,8 @@
 "use strict"
 let desktopMedia = window.matchMedia("(min-width: 1025px)");
 let tlDetails,
-    tlOpen,
+    tlOpenFirst,
+    tlOpenSec,
     tlShowDescM,
     tlHideDet;
 const divAbout = document.querySelector("#home-about .div-desc"),
@@ -20,32 +21,71 @@ document.addEventListener("DOMContentLoaded", onInit);
 
 function onInit() {
     animateLandingPage();
-    setLocalStorage
+    setLocalStorage();
 
 }
+
+console.log(localStorage);
 
 function animateLandingPage() {
 
 
     if (desktopMedia.matches) {
         loopDivs();
-        tlOpen = new TimelineLite();
 
-        tlOpen
-            .from("#black-square", 1, {
-                scale: 1.7,
-                ease: Power3.easeOut
-            }, "+=2")
-            .from(".navigation", 1, {
-                opacity: 0,
-                ease: Power1.easeIn
-            }, "-=1")
-            .staggerFrom(".div-pics", 0.4, {
-                opacity: 0,
-                x: -80,
-                y: -50,
-                ease: Power1.easeOut
-            }, 0.06);
+        if (localStorage.status == "opened") {
+            console.log("NOOOO anim");
+
+            document.querySelector("#opening-screen").style.display = "none";
+            tlOpenSec = new TimelineLite();
+
+            tlOpenSec
+                .staggerFrom(".div-pics", 0.4, {
+                    opacity: 0,
+                    x: -80,
+                    y: -50,
+                    ease: Power1.easeOut
+                }, 0.06);
+
+        } else {
+            console.log(" play anim");
+
+            tlOpenFirst = new TimelineLite();
+
+            tlOpenFirst
+                .from(".black-square-o", 1, {
+                    scale: 1.7,
+                    ease: Power3.easeOut
+                }, "+=1.5")
+                .to(".black-square-2", 0.4, {
+                    opacity: 0
+                })
+                .to("#opening-screen", 0.8, {
+                    backgroundColor: "transparent"
+                }, "-=1")
+
+                .from(".navigation", 0.7, {
+                    opacity: 0,
+                    ease: Power1.easeIn
+                }, "-=1")
+                .staggerFrom(".div-pics", 0.4, {
+                    opacity: 0,
+                    x: -80,
+                    y: -50,
+                    ease: Power1.easeOut
+                }, 0.06, "-=0.8")
+                .to(".black-square-o", 0.4, {
+                    opacity: 0
+                })
+                .to(".black-square-2", 0.4, {
+                    opacity: 1
+                }, "-=0.8")
+                .to("#opening-screen", 0.01, {
+                    display: "none"
+                })
+                ;
+        }
+
 
         function loopDivs() {
             divArray.forEach(div => {
@@ -123,6 +163,13 @@ function animateLandingPage() {
     //     })
 
     // }
+}
+
+function setLocalStorage() {
+
+    setTimeout(function () {
+        localStorage.setItem("status", "opened");
+    }, 5000);
 }
 
 
