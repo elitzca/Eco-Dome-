@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", onInit);
 
 function onInit() {
     animateLandingPage();
-    setLocalStorage
 
 }
 
