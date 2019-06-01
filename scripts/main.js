@@ -4,18 +4,24 @@ let tlDetails,
     tlOpenFirst,
     tlOpenSec,
     tlShowDescM,
+    tlCloseDescM,
     tlHideDet;
 const divAbout = document.querySelector("#home-about .div-desc"),
     divProjects = document.querySelector("#home-projects .div-desc"),
     divParts = document.querySelector("#home-parts .div-desc"),
     divCont = document.querySelector("#home-contacts .div-desc");
-const arrAbout = document.querySelector("#home-about .div-arrow"),
-    arrProjects = document.querySelector("#home-projects .div-arrow"),
-    arrParts = document.querySelector("#home-parts .div-arrow"),
-    arrCont = document.querySelector("#home-contacts .div-arrow");
+const arrAboutO = document.querySelector("#home-about .div-arrow-o"),
+    arrProjectsO = document.querySelector("#home-projects .div-arrow-o"),
+    arrPartsO = document.querySelector("#home-parts .div-arrow-o"),
+    arrContO = document.querySelector("#home-contacts .div-arrow-o");
+const arrAboutC = document.querySelector("#home-about .div-arrow-c"),
+    arrProjectsC = document.querySelector("#home-projects .div-arrow-c"),
+    arrPartsC = document.querySelector("#home-parts .div-arrow-c"),
+    arrContC = document.querySelector("#home-contacts .div-arrow-c");
 // let divArray = [document.querySelectorAll(".div-pics")];
 let divArray = [divAbout, divProjects, divParts, divCont];
-let arrArray = [arrAbout, arrCont, arrParts, arrProjects];
+let arrOpenArray = [arrAboutO, arrContO, arrPartsO, arrProjectsO];
+let arrCloseArray = [arrAboutC, arrContC, arrPartsC, arrProjectsC];
 
 document.addEventListener("DOMContentLoaded", onInit);
 
@@ -149,10 +155,10 @@ function animateLandingPage() {
 
     } else {
 
-        arrArray.forEach(arr => {
-            arr.addEventListener("click", showDescMobile);
+        arrOpenArray.forEach(arr => {
+            arr.addEventListener("click", slideOpenDescMobile);
 
-            function showDescMobile(event) {
+            function slideOpenDescMobile(event) {
                 console.log(event.target);
                 console.log(event.target.parentElement);
                 let divDesc = event.target.parentElement
@@ -160,11 +166,27 @@ function animateLandingPage() {
 
                 tlShowDescM
                     .to(divDesc, 0.5, {
-                        left: "0"
+                        left: "-100vw"
                     })
             }
 
 
+        })
+
+        arrCloseArray.forEach(arr => {
+            arr.addEventListener("click", slideCloseDescMobile);
+
+            function slideCloseDescMobile(event) {
+                console.log(event.target);
+                console.log(event.target.parentElement);
+                let divDesc = event.target.parentElement
+                tlCloseDescM = new TimelineLite();
+
+                tlCloseDescM
+                    .to(divDesc, 0.5, {
+                        left: "0vw"
+                    })
+            }
         })
     }
 

@@ -353,51 +353,12 @@ a {
   line-height: 1.3;
   display: inline-block;
   vertical-align: middle;
-  padding: 0 10vw 0 12vw;
+  /* padding: 0 10vw 0 12vw; */
 }
 
-.div-arrow {
-  position: absolute;
-  width: 7vw;
-  height: 5vh;
-  padding: 15vh 2vw;
-  left: -9vw;
-  transform: rotate(180deg);
-  background-image: url(../icons/arrow-right.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: rgba(255, 192, 203, 0.466);
-  padding: 17.5vh 3vh;
-  z-index: 10;
-}
 
-.arr-cont {
-  position: absolute;
-  width: 7vw;
-  height: 5vh;
-  padding: 15vh 2vw;
-  left: 3vw;
-  top: 0;
-  background-color: rgba(172, 255, 47, 0.596);
-}
 
-.arrow-part {
-  width: 15px;
-  height: 3px;
-  
-  position: absolute;
-  background-color: white;
-}
 
-.arrow-top {
-  transform-origin: bottom right;
-  transform: rotate(52deg);
-}
-
-.arrow-bottom {
-  transform-origin: top right;
-  transform: rotate(-52deg);
-}
 
 .div-link {
   position: absolute;
@@ -431,6 +392,68 @@ a {
   background-image: url(../hdr-all/hdr-portrait-1.jpg);
 }
 
+@media only screen and (max-width: 1024px){
+  .div-desc{
+    width: 200vw;
+    left: 0;
+    /* background-color: rgba(139, 0, 139, 0.377); */
+  }
+  
+  .div-title {
+    width: 100vw;
+    left: 0;
+  }
+  
+  .div-arrow-o {
+    position: absolute;
+    width: 12vw;
+    height: 35vh;
+    top: 0;
+    left: 88vw;
+    background-image: url(../icons/arrow-right.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(29, 29, 29, 0.45);
+    /* z-index: 10; */
+  }
+  
+  .div-arrow-c {
+    position: absolute;
+    width: 12vw;
+    height: 35vh;
+    top: 0;
+    left: 100vw;
+    transform: rotate(180deg);
+    background-image: url(../icons/arrow-right.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(29, 29, 29, 0.4);
+    /* z-index: 10; */
+  }
+  
+  .div-text{
+    position: absolute;
+    width: 88vw;
+    height: 25vh;
+    top: 0;
+    left: 112vw;
+    background-color: rgba(29, 29, 29, 0.4);
+  }
+  
+  .div-link{
+    width: 88vw;
+    height: 10vh;
+    bottom: 0;
+    left: 112vw;
+    font-size: 3.6vh;
+    text-align: left;
+    background-color: rgba(29, 29, 29, 0.4);
+  }
+  
+  .div-link a{
+    line-height: 10vh;
+  }
+}
 
 /* HOME PAGE */
 /* DESKTOP */
@@ -590,7 +613,7 @@ a {
     bottom: 7vh;
   }
   
-  .div-arrow {
+  .div-arrow-o, .div-arrow-c {
     display: none;
 }
 }
