@@ -440,6 +440,12 @@ a {
     background-color: rgba(29, 29, 29, 0.4);
   }
   
+  .div-text p {
+    width: fit-content;
+    padding: 3vh 7vw 0 1vw;
+    font-size: 2.2vh;
+  }
+  
   .div-link{
     width: 88vw;
     height: 10vh;
@@ -452,6 +458,7 @@ a {
   
   .div-link a{
     line-height: 10vh;
+  padding-left: 1vw; 
   }
 }
 
