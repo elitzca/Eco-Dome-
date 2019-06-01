@@ -83,14 +83,14 @@ function openMenu() {
     //     opacity: 1,
     //     ease: Power1.easeOut
     //   }, "-=0.0")
-    .staggerFromTo(".navigation-item", 0.4, {
+    .staggerFromTo(".navigation-item", 0.2, {
       y: -10,
       opacity: 0
     }, {
         y: 0,
         opacity: 1,
         ease: Power1.easeOut
-      }, 0.05, "+=0.02")
+      }, 0.05, "+=0.0")
     ;
 }
 

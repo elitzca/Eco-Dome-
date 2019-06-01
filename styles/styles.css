@@ -325,6 +325,7 @@ a {
 
 #home-contacts{
   z-index: 5;
+  margin-bottom: 0;
 }
 
 .div-desc {

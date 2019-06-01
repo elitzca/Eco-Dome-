@@ -102,11 +102,16 @@ function animateLandingPage() {
                 function showDetails(event) {
                     tlDetails = new TimelineLite();
 
+                    // console.log(event.target.children[0]);
+
                     tlDetails
-                        .to(event.target, 0.3, {
+                        .to(event.target, 0.5, {
                             top: "-46vh",
-                            ease: Power1.easeIn
+                            ease: Power2.easeOut
                         })
+                        .to(event.target.children[0], 0.2, {
+                            opacity: 0
+                        }, "-=0.5")
                         ;
                 }
 
@@ -118,9 +123,12 @@ function animateLandingPage() {
                     tlDetails
                         .to(event.target, 0.1, {
                             top: 0,
-                            ease: Power1.easeIn
-                        });
-
+                            ease: Power1.easeOut
+                        })
+                        .to(event.target.children[0], 0.2, {
+                            opacity: 1
+                        }, "-=0.1")
+                        ;
                 }
             });
         }
@@ -159,15 +167,25 @@ function animateLandingPage() {
             arr.addEventListener("click", slideOpenDescMobile);
 
             function slideOpenDescMobile(event) {
-                console.log(event.target);
-                console.log(event.target.parentElement);
+                // console.log(event.target);
+                // console.log(event.target.nextElementSibling);
                 let divDesc = event.target.parentElement
                 tlShowDescM = new TimelineLite();
 
                 tlShowDescM
                     .to(divDesc, 0.5, {
-                        left: "-100vw"
+                        left: "-100vw",
+                        ease: Power1.easeOut
                     })
+                    .to(event.target, 0.2, {
+                        opacity: 0
+                    }, "-=0.5")
+                    .fromTo(event.target.nextElementSibling, 0.2, {
+                        opacity: 0
+                    }, {
+                            opacity: 1
+                        }, "-=0.5")
+                    ;
             }
 
 
@@ -177,15 +195,23 @@ function animateLandingPage() {
             arr.addEventListener("click", slideCloseDescMobile);
 
             function slideCloseDescMobile(event) {
-                console.log(event.target);
-                console.log(event.target.parentElement);
+                // console.log(event.target);
+                console.log(event.target.previousElementSibling);
                 let divDesc = event.target.parentElement
                 tlCloseDescM = new TimelineLite();
 
                 tlCloseDescM
                     .to(divDesc, 0.5, {
-                        left: "0vw"
+                        left: "0vw",
+                        ease: Power1.easeOut
                     })
+                    .to(event.target, 0.2, {
+                        opacity: 0
+                    }, "-=0.5")
+                    .to(event.target.previousElementSibling, 0.3, {
+                        opacity: 1,
+                        ease: Power3.easeIn
+                    }, "+=0.1");
             }
         })
     }
