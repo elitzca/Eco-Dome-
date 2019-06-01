@@ -154,8 +154,8 @@ function animateLandingPage() {
 
             function showDescMobile(event) {
                 console.log(event.target);
-                console.log(event.target.parentElement.parentElement);
-                let divDesc = event.target.parentElement.parentElement
+                console.log(event.target.parentElement);
+                let divDesc = event.target.parentElement
                 tlShowDescM = new TimelineLite();
 
                 tlShowDescM

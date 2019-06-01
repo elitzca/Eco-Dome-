@@ -345,7 +345,7 @@ a {
   width: inherit;
   line-height: 35vh;
   text-align: center;
-  background-color: rgba(29,29,29,0.25);
+  /* background-color: rgba(29,29,29,0.25); */
   font-size: 2.4em;
 }
 
@@ -358,9 +358,14 @@ a {
 
 .div-arrow {
   position: absolute;
-  top: 0;
-  left: 0;
+  width: 7vw;
+  height: 5vh;
+  padding: 15vh 2vw;
+  left: -9vw;
   transform: rotate(180deg);
+  background-image: url(../icons/arrow-right.png);
+  background-position: center;
+  background-repeat: no-repeat;
   background-color: rgba(255, 192, 203, 0.466);
   padding: 17.5vh 3vh;
   z-index: 10;
@@ -586,10 +591,7 @@ a {
   }
   
   .div-arrow {
-    position: absolute;
-    top: -5vh;
-    left: 50%;
-    transform: rotate(-90deg);
+    display: none;
 }
 }
 
