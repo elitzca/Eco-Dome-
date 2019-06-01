@@ -266,6 +266,7 @@ a {
 /* BLACK SQUARE */
 /* MOBILE */
 
+
 #opening-screen{
   display: none;
 }
@@ -339,11 +340,13 @@ a {
 }
 
 .div-title {
+  position: absolute;
+  left: -90vw;
+  width: inherit;
   line-height: 35vh;
   text-align: center;
-  padding: 0px 10px;
   background-color: rgba(29,29,29,0.25);
-  
+  font-size: 2.4em;
 }
 
 .div-text {
@@ -355,9 +358,22 @@ a {
 
 .div-arrow {
   position: absolute;
-  top: 48%;
-  left: 7%;
+  top: 0;
+  left: 0;
   transform: rotate(180deg);
+  background-color: rgba(255, 192, 203, 0.466);
+  padding: 17.5vh 3vh;
+  z-index: 10;
+}
+
+.arr-cont {
+  position: absolute;
+  width: 7vw;
+  height: 5vh;
+  padding: 15vh 2vw;
+  left: 3vw;
+  top: 0;
+  background-color: rgba(172, 255, 47, 0.596);
 }
 
 .arrow-part {
@@ -514,11 +530,11 @@ a {
   }
   
   .div-title {
+    position: initial;
     width: fit-content;
     display: block;
-    margin: 35vh auto 0 auto;
-    top: 35vh;
-    left: 7vw;
+    float: left;
+    margin: 35vh 0 0 7vw;
         
     font-size: 4vh;
     display: block;
@@ -527,7 +543,8 @@ a {
   }
   
   .div-right .div-desc h1{
-    text-align: right;
+    float: right;
+    margin: 35vh 7vw 0 0;
   }
   
   .div-desc {
@@ -537,11 +554,15 @@ a {
     left: 0;
     
    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,1d1d1d+99&0+0,0.1+23,0.5+36,0.7+50 */
-background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(7,7,7,0.1) 23%, rgba(11,11,11,0.5) 36%, rgba(15,15,15,0.7) 50%, rgba(29,29,29,0.7) 99%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(7,7,7,0.1) 23%,rgba(11,11,11,0.5) 36%,rgba(15,15,15,0.7) 50%,rgba(29,29,29,0.7) 99%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(7,7,7,0.1) 23%,rgba(11,11,11,0.5) 36%,rgba(15,15,15,0.7) 50%,rgba(29,29,29,0.7) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b31d1d1d',GradientType=0 ); /* IE6-9 */
-
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(7,7,7,0.1) 23%, rgba(11,11,11,0.5) 36%, rgba(15,15,15,0.7) 50%, rgba(29,29,29,0.7) 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(7,7,7,0.1) 23%,rgba(11,11,11,0.5) 36%,rgba(15,15,15,0.7) 50%,rgba(29,29,29,0.7) 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(7,7,7,0.1) 23%,rgba(11,11,11,0.5) 36%,rgba(15,15,15,0.7) 50%,rgba(29,29,29,0.7) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b31d1d1d',GradientType=0 ); /* IE6-9 */
+  }
+  
+  .div-text{
+    vertical-align: unset;
+    margin: 15vh 0;
   }
   
   .dl p{
@@ -549,17 +570,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   }
   
   .dr p{
-    padding: 5vh 8vw 0 15vw;
+    padding: 0 8vw 0 15vw;
+    text-align: right;
   }
   
   .dl li{
-    bottom: 7vh;
     left: 8vw;
+    bottom: 7vh;
   }
   
   .dr li{
+    left: auto;
+    right: 8vw;
     bottom: 7vh;
-    left: 15vw;
   }
   
   .div-arrow {

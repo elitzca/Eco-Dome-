@@ -147,22 +147,28 @@ function animateLandingPage() {
         // }
 
 
+    } else {
+
+        arrArray.forEach(arr => {
+            arr.addEventListener("click", showDescMobile);
+
+            function showDescMobile(event) {
+                console.log(event.target);
+                console.log(event.target.parentElement.parentElement);
+                let divDesc = event.target.parentElement.parentElement
+                tlShowDescM = new TimelineLite();
+
+                tlShowDescM
+                    .to(divDesc, 0.5, {
+                        left: "0"
+                    })
+            }
+
+
+        })
     }
-    // else {
-    //     arrArray.forEach(arr => {
-    //         arr.addEventListener("click", showDescMobile);
 
-    //         function showDescMobile(event) {
-    //             tlShowDescM = new TimelineLite();
 
-    //             tlShowDescM
-    //                 .to(".div-desc", 0.5, {
-    //                     left: "0"
-    //                 })
-    //         }
-    //     })
-
-    // }
 }
 
 function setLocalStorage() {
