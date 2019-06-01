@@ -44,7 +44,7 @@ function showOneProject(aProject) {
   clone.querySelector(".location").textContent = aProject.acf.location;
   clone.querySelector(".date").textContent = aProject.acf.date;
 
-  clone.querySelector(".excerpt").innerHTML = aProject.excerpt.rendered;
+  clone.querySelector(".excerpt-short").innerHTML = aProject.excerpt.rendered;
   // clone.querySelector(".description").innerHTML = aProject.content.rendered;
   clone
     .querySelector("img")

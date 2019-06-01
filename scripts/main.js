@@ -31,7 +31,7 @@ function onInit() {
 
 }
 
-console.log(localStorage);
+console.log(sessionStorage);
 
 function animateLandingPage() {
 
@@ -39,7 +39,7 @@ function animateLandingPage() {
     if (desktopMedia.matches) {
         loopDivs();
 
-        if (localStorage.status == "opened") {
+        if (sessionStorage.status == "opened") {
             console.log("NOOOO anim");
 
             document.querySelector("#opening-screen").style.display = "none";
@@ -222,7 +222,7 @@ function animateLandingPage() {
 function setLocalStorage() {
 
     setTimeout(function () {
-        localStorage.setItem("status", "opened");
+        sessionStorage.setItem("status", "opened");
     }, 5000);
 }
 

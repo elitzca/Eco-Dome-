@@ -650,30 +650,28 @@ main {
   font-size: 2em;
 }
 
-.text-left p {
+.proj-texts p {
   width: 75%;
   display: block;
 }
 
-.text-left .p1 {
+.proj-texts .p1 {
   margin: 4vh 8%;
 }
 
-.text-left .p2 {
+.proj-texts .p2 {
   margin: 3vh 21%;
 }
 
-.text-left .p3 {
-  margin: 3vh 14%;
-}
 
 .project{
   width: 100vw;
   height: 35vh;
   
   position: relative;
-  margin: 1vh 0;
+  margin: 5vh 0;
   overflow: hidden;
+  box-shadow: #4b4b4b 0 0 10px;
 }
 
 .ft-img {
@@ -727,27 +725,14 @@ main {
   margin: 0.5vh auto;  
 }
 
-.arr-ab{
-  position: absolute;
-
-  width: 15px;
-  height: 4px;
-  
-  left: 50%;
-  margin-left: -7px;
-  background-color: white;
-  box-shadow: #1d1d1d 0px 0px 7px;
-}
-
-#arrow-a {
-  transform-origin: bottom left;
-  transform: rotate(-38deg);
-}
-
-#arrow-b {
-  transform-origin: bottom right;
-  transform: rotate(38deg);
-  margin-left: -2px;
+.desc-arr-proj-up{
+  width: 100%;
+  height: 5vh;
+  margin-left: 10vw; /* since all div have max-width 80%*/
+  background-image: url(../icons/arrow-right.png); /* change with top one*/
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(-90deg);
 }
 
 .bg-gradient > div, .bg-gradient > h1, .bg-gradient > li  {
@@ -761,9 +746,13 @@ main {
   margin: 0 auto 1.5vh auto;
 }
 
-.excerpt {
+.excerpt-short {
   text-align: left;
   margin: 1vh auto;
+}
+
+.excert-long{
+  display: none;
 }
 
 .bg-gradient li {
@@ -776,42 +765,54 @@ main {
 /* DESKTOP */
 
 @media only screen and (min-width: 1025px){
-  #main-proj{
-    margin-top: 8vh;
+  
+  
+  .proj-texts{
+    width: 80%;
+    margin: 8vh 0 0 0;
+    padding: 0 10vw;
     display: grid;
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 50% 50%;
+  }
+  
+  .page-title{
+    grid-column-start: 1;
+    grid-column-end: -1;
   }
   
   .text-left p  {
     font-size: 0.9em;
-    width: 60%;
+    /* width: 60%; */
   }
   
   .text-left .p1 {
-    margin: 5vh 0 5vh 10%;
+    /* margin: 5vh 0 5vh 10%; */
   }
   
   .text-left .p2 {
-    margin: 5vh 0 5vh 35%;
+    /* margin: 5vh 0 5vh 35%; */
   }
 
-  .text-left .p3 {
-    margin: 5vh 0 5vh 17%;
-  }
+.gallery-proj{
+  width: 100vw;
+}
   
   #projlist{
     display: grid;
-    grid-template-columns: 32% 32% 32%;
+    grid-template-columns: repeat(auto-fill,minmax(16em,1fr));
+    grid-column-gap: 5vw;
+    grid-row-gap: 10vw;
     overflow: hidden; 
   }
   
   .project{
-    width: 18vw;
-    height: 23vh;
+    width: 100%;
+    max-height: 60vh;
+    box-shadow:  grey 0 0 90px;
   }
   
   .ft-img{
-    width: 18vw;
-    height: 23vh;
+    width: 100%;
+    max-height: 25vh;
   }
 }
