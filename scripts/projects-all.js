@@ -2,6 +2,8 @@ let template = document.querySelector("#projtemplate").content;
 let projlist = document.querySelector("#projlist");
 let page = 1;
 let lookingForData = !1;
+let mobileMedia = window.matchMedia("(max-width: 750px)");
+let tlD1, tlD2, tlD3, tlD4;
 
 function fetchProjects() {
   lookingForData = !0;
@@ -28,7 +30,8 @@ function fetchProjects() {
     "https://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=9"
   )
     .then(e => e.json())
-    .then(showProjects);
+    .then(showProjects)
+    .then(loopProj);
 }
 
 function showProjects(data) {
@@ -78,3 +81,81 @@ fetchProjects();
 //   const bottomOfPage = visible + Math.round(scrollY) >= pageHeight;
 //   return bottomOfPage || pageHeight < visible;
 // }
+
+function loopProj() {
+  // let nodeListProj = document.querySelectorAll(".project");
+  // let HTMLCollectionProj = document.getElementsByClassName("project");
+  let projArr = [...document.querySelectorAll(".project")];
+  // console.log(nodeListProj, nodeListProj.length);
+  // console.log(HTMLCollectionProj, HTMLCollectionProj.length);
+  // console.log(projArr);
+  // console.log(Array.isArray(projArr));
+
+  if (mobileMedia.matches) {
+    //
+  } else {
+    projArr.forEach(proj => {
+      proj.addEventListener("mouseover", scaleUp);
+      proj.addEventListener("mouseleave", scaleDown);
+
+      function scaleUp(event) {
+        let li = event.target.childNodes[1];
+        let anchor = event.target.childNodes[1].childNodes[0];
+        tlD1 = new TimelineLite();
+
+        li.addEventListener("mouseover", keepScaled);
+        anchor.addEventListener("mouseover", keepScaled2);
+
+        tlD1
+          .to(".project", 0.3, {
+            scale: 0.97,
+            ease: Power1.easeOut
+          })
+          .to(event.target.parentElement, 0.3, {
+            scale: 1.1,
+            ease: Power1.easeOut
+          }, "-=0.3")
+          .to(anchor, 0.5, {
+            color: "#e60056",
+            fontWeight: "bold"
+          }, "-=0.3")
+          ;
+
+        function keepScaled(event) {
+          tlD2 = new TimelineLite();
+          let projParent = event.target.parentElement.parentElement;
+          console.log(event.target.parentElement.parentElement);
+          tlD2
+            .to(projParent, 0.001, {
+              scale: 1
+            })
+        }
+
+        function keepScaled2(event) {
+          tlD3 = new TimelineLite();
+          let projParent = event.target.parentElement.parentElement.parentElement;
+          console.log(event.target.parentElement.parentElement.parentElement);
+          tlD3
+            .to(projParent, 0.001, {
+              scale: 1.1
+            })
+        }
+      }
+
+      function scaleDown(event) {
+        let tlD4 = new TimelineLite();
+
+        tlD4
+          .to(".project", 0.3, {
+            scale: 1,
+            ease: Power1.easeOut
+          })
+          .to(event.target.parentElement, 0.3, {
+            scale: 1,
+            ease: Power1.easeOut
+          }, "-=0.3")
+          ;
+      }
+    })
+  }
+}

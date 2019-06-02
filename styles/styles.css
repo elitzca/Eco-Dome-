@@ -713,7 +713,7 @@ main {
   margin: 1vh auto 0.75vh auto;
 }
 
-.readmore {
+.readmore-m {
   color: white;
   text-decoration: underline;
   font-weight: bold;
@@ -751,12 +751,16 @@ main {
   margin: 1vh auto;
 }
 
-.excert-long{
-  display: none;
-}
+
 
 .bg-gradient li {
   margin: 1vh auto 4vh auto;
+}
+
+@media only screen and (max-width: 750px){
+  .excerpt-long{
+    display: none !important ;
+  }
 }
 
 
@@ -764,7 +768,7 @@ main {
 /* PROJECTS */
 /* DESKTOP */
 
-@media only screen and (min-width: 1025px){
+@media only screen and (min-width: 750px){
   
   
   .proj-texts{
@@ -798,6 +802,8 @@ main {
 }
   
   #projlist{
+    width: 80%;
+    padding: 10%;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(16em,1fr));
     grid-column-gap: 5vw;
@@ -807,12 +813,74 @@ main {
   
   .project{
     width: 100%;
-    max-height: 60vh;
-    box-shadow:  grey 0 0 90px;
+    height: initial;
+    margin: 0;
+    box-shadow:  grey 0 0 70px;
   }
+  
+  .catch-hover {
+    width: 100%;
+    height: 100%;
+    
+    top: 0;
+    left: 0;
+    
+    position: absolute;
+  }
+  
   
   .ft-img{
     width: 100%;
+    height: 100%;
     max-height: 25vh;
+    position: initial;
+  }
+  
+  .bg-gradient{
+    width: 100%;
+    position: initial;
+    display: initial;
+    background: none;
+    color: #1d1d1d;
+  }
+  
+  .desc-arr-proj-up, .desc-arr-proj-down, .excerpt-short, .link-m{
+    display: none !important;
+  }
+  
+  .bg-gradient h1{
+    font-size: 1.2em;
+    margin: 6% 10% 4% 10%;
+  }
+  
+  .date-loc {
+    font-size: 0.9em;
+    margin: 0 10%;
+  }
+  
+  .excerpt-long {
+    font-size: 0.8em;
+    margin: 5% 10% 15% 10%;
+    text-align: left;
+  }
+  
+  
+  .readmore-d, .date-loc{
+    color: #1d1d1d;
+  }
+  
+  .link-d {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    bottom: 5%;
+    left: 50%;
+  }
+  
+  .readmore-d {
+    width: fit-content;
+    font-size: 0.9em;
+    position: relative;
+    padding: 3% 0
   }
 }
