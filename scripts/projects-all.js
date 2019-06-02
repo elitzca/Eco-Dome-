@@ -3,7 +3,7 @@ let projlist = document.querySelector("#projlist");
 let page = 1;
 let lookingForData = !1;
 let mobileMedia = window.matchMedia("(max-width: 750px)");
-let tlD1, tlD2, tlD3, tlD4;
+let tlD1, tlD2, tlD3, tlD4, tlM1, tlM2;
 
 function fetchProjects() {
   lookingForData = !0;
@@ -41,7 +41,7 @@ function showProjects(data) {
 }
 
 function showOneProject(aProject) {
-  console.log(aProject);
+  console.log(aProject.id);
   let clone = template.cloneNode(!0);
   clone.querySelector("h1").textContent = aProject.title.rendered;
   clone.querySelector(".location").textContent = aProject.acf.location;
@@ -57,7 +57,8 @@ function showOneProject(aProject) {
         .source_url
     );
 
-  clone.querySelector(".readmore").href = "project.html?id=" + aProject.id;
+  clone.querySelector(".readmore-m").href = "project.html?id=" + aProject.id;
+  clone.querySelector(".readmore-d").href = "project.html?id=" + aProject.id;
 
   // template.style.backgroundImage = "url( `aProject._embedded["wp: featuredmedia"][0].media_details.sizes.medium.source_url`)";
 
@@ -86,14 +87,82 @@ function loopProj() {
   // let nodeListProj = document.querySelectorAll(".project");
   // let HTMLCollectionProj = document.getElementsByClassName("project");
   let projArr = [...document.querySelectorAll(".project")];
+  let arrUpArr = [...document.querySelectorAll(".desc-arr-proj-up")];
+  let arrDownArr = [...document.querySelectorAll(".desc-arr-proj-down")];
+  console.log(arrUpArr, arrDownArr);
   // console.log(nodeListProj, nodeListProj.length);
   // console.log(HTMLCollectionProj, HTMLCollectionProj.length);
   // console.log(projArr);
   // console.log(Array.isArray(projArr));
 
   if (mobileMedia.matches) {
-    //
+
+    arrUpArr.forEach(arr => {
+      arr.addEventListener("click", showProjDescM);
+
+      function showProjDescM(event) {
+        tlM1 = new TimelineLite();
+
+        let descGrad = event.target.parentElement.parentElement;
+        console.log(event.target.nextElementSibling);
+        tlM1
+          .to(descGrad, 0.3, {
+            top: "0",
+            ease: Power1.easeOut
+          })
+          .fromTo(event.target, 0.3, {
+            display: "inherit",
+            opacity: 1
+          }, {
+              opacity: 0,
+              display: "none"
+            }, "-=0.3")
+          .fromTo(event.target.nextElementSibling, 0.3, {
+            display: "none",
+            opacity: 0
+          }, {
+              display: "inherit",
+              opacity: 1
+            })
+          ;
+      }
+    })
+
+
+    arrDownArr.forEach(arr => {
+      arr.addEventListener("click", hideProjDescM);
+
+      function hideProjDescM(event) {
+        tlM2 = new TimelineLite();
+
+        let descGrad = event.target.parentElement.parentElement;
+        console.log(event.target.previousElementSibling);
+        tlM2
+          .to(descGrad, 0.3, {
+            top: "41%",
+            ease: Power1.easeOut
+          })
+          .fromTo(event.target, 0.3, {
+            display: "inherit",
+            opacity: 1
+          }, {
+              opacity: 0,
+              display: "none"
+            }, "-=0.3")
+          .fromTo(event.target.previousElementSibling, 0.3, {
+            display: "none",
+            opacity: 0
+          }, {
+              display: "inherit",
+              opacity: 1
+            })
+          ;
+      }
+    })
+
+
   } else {
+
     projArr.forEach(proj => {
       proj.addEventListener("mouseover", scaleUp);
       proj.addEventListener("mouseleave", scaleDown);
