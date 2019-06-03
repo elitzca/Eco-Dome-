@@ -21,7 +21,7 @@ let timelineBurgerOpen,
 //   skillsLink,
 //   contactsLink
 // ];
-console.log(mediaQuery);
+// console.log(mediaQuery);
 
 function onInit() {
   //addEventListeners

@@ -899,3 +899,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     padding: 3% 0
   }
 }
+
+
+/* PROJECT SINGLE */
+/* PROJECT SINGLE */
+/* PROJECT SINGLE */
+/* PROJECT SINGLE */
+/* PROJECT SINGLE */
+/* PROJECT SINGLE */
+
+.img-cont {
+  max-width: 760px;
+  margin: auto;
+  border: #fff solid 3px;
+  background-color: #fff;
+}
+
+.main-img img, 
+.imgs img {
+  width: 100%;
+  height: auto;
+}
+
+.imgs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}

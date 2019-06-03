@@ -1,27 +1,117 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" type="image/png" href="icons/rel-icon.png" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Cinzel:400,700,900|Montaga|Montserrat+Subrayada:400,700|Montserrat:200,200i,300,400,400i,600,700,800|Questrial&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles/styles.css" />
   <title>Eco Dome</title>
 </head>
 
 <body>
+  <nav class="navigation navigation-sticky">
+    <div class="navigation-wrapper">
+
+      <div id="top-nav">
+        <div id="burger-menu">
+          <div id="burger-line-top" class="burger-line"></div>
+          <div id="burger-line-middle" class="burger-line"></div>
+          <div id="burger-line-bottom" class="burger-line"></div>
+        </div>
+        <div class="navigation-logo">
+          <a id="home-link" href="index.html"><svg class="nav-logo-svg" data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225.37 145">
+              <defs>
+                <style>
+                  .cls-black-nav {
+                    fill: none;
+                    stroke: #1d1d1d;
+                    stroke-miterlimit: 10;
+                    stroke-width: 12px;
+                  }
+                </style>
+              </defs>
+              <title>nav-logo</title>
+              <path class="cls-black-nav"
+                d="M646.5,816.5h207c1.75-6.35,12.37-47.44-13-86-30.69-46.65-86-47-90-47-6.82,0-49,.64-80,35C633.53,759.49,645.39,812,646.5,816.5Z"
+                transform="translate(-637.82 -677.5)" />
+              <line class="cls-black-nav" x1="112.68" y1="6" x2="112.68" y2="139" />
+              <line class="cls-black-nav" x1="44.68" y1="99" x2="112.43" y2="99" />
+              <line class="cls-black-nav" x1="112.43" y1="56.25" x2="74.68" y2="56.25" />
+              <path class="cls-black-nav" d="M785.5,773.5h34s-3-31-34-46Z" transform="translate(-637.82 -677.5)" />
+            </svg>
+            <span> Eco Dome</span></a>
+        </div>
+      </div>
+
+      <div class="navigation-items-wrapper">
+        <ul class="navigation-items">
+          <svg class="logo-white-dropdown" class="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 221.37 141">
+            <defs>
+              <style>
+                .cls-white-dropdown {
+                  fill: none;
+                  stroke: #ffffff;
+                  stroke-miterlimit: 10;
+                  stroke-width: 8px;
+                }
+              </style>
+            </defs>
+            <title>menu-mobile</title>
+            <path class="cls-white-dropdown"
+              d="M655.5,824.5h207c1.75-6.35,12.37-47.44-13-86-30.69-46.65-86-47-90-47-6.82,0-49,.64-80,35C642.53,767.49,654.39,820,655.5,824.5Z"
+              transform="translate(-648.82 -687.5)" />
+            <line class="cls-white-dropdown" x1="110.68" y1="4" x2="110.68" y2="137" />
+            <line class="cls-white-dropdown" x1="42.68" y1="97" x2="110.43" y2="97" />
+            <line class="cls-white-dropdown" x1="110.43" y1="54.25" x2="72.68" y2="54.25" />
+            <path class="cls-white-dropdown" d="M794.5,781.5h34s-3-31-34-46Z" transform="translate(-648.82 -687.5)" />
+          </svg>
+          <h1 id="h1-dropdown" class="">Eco Dome</h1>
+          <li class="navigation-item home-link">
+            <a id="top-link" href="index.html">Home</a>
+          </li>
+          <li class="navigation-item">
+            <a id="about-link" href="about.html">About</a>
+          </li>
+          <li class="navigation-item">
+            <a id="projects-link" href="projects-all.html">Projects</a>
+          </li>
+          <li class="navigation-item">
+            <a id="skills-link" href="parts.html">Order Parts</a>
+          </li>
+          <li class="navigation-item">
+            <a id="contacts-link" href="contacts.html">Contacts</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
   <main class="main-subpage">
     <section id="aProject">
       <h1>TITLE</h1>
       <div class="location">Location</div>
       <div class="date">Date</div>
-      <div class="description">Bla bla bla</div>
-      <div class="img">
-        <img src="" alt="Picture of the event" />
-      </div>
+      <div class="purpose">Purpose</div>
+      <div class="type">Geodesic dome</div>
+      <div class="conn-type">Connection type</div>
+      <div class="area"></div>
+      <div class="dimensions"></div>
+      <div class="proj-content">Bla bla bla</div>
     </section>
   </main>
-</body>
 
+  <footer></footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+<script src="scripts/menu.js"></script>
 <script src="scripts/project.js"></script>
 
 </html>
