@@ -7,27 +7,31 @@ let tlD1, tlD2, tlD3, tlD4, tlM1, tlM2;
 
 function fetchProjects() {
   lookingForData = !0;
-  // let urlParameters = new URLSearchParams(window.location.search);
-  // let catid = urlParameters.get("category");
+  let urlParameters = new URLSearchParams(window.location.search);
+  console.log(urlParameters);
+  let catid = urlParameters.get("category");
   // if (catid) {
   //   fetch(
-  //     "http://elitzca.eu/kea/wordpress/wp-json/wp/v2/event?_embed&per_page=9&page=" +
-  //       page +
-  //       "&categories=" +
-  //       catid
+  //     "http://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=6&page=" +
+  //     page +
+  //     "&categories=" +
+  //     catid
   //   )
   //     .then(e => e.json())
-  //     .then(showProjects);
+  //     .then(showProjects)
+  //     .then(loopProj);
   // } else {
   //   fetch(
-  //     "http://elitzca.eu/kea/wordpress/wp-json/wp/v2/event?_embed&per_page=10&page=" +
-  //       page
+  //     "http://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=6&page=" +
+  //     page
   //   )
   //     .then(e => e.json())
-  //     .then(showProjects);
+  //     .then(showProjects)
+  //     .then(loopProj);
   // }
   fetch(
-    "https://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=9"
+    "https://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=1"
+    + page
   )
     .then(e => e.json())
     .then(showProjects)
@@ -66,22 +70,27 @@ function showOneProject(aProject) {
 
 
 }
-fetchProjects();
-// setInterval(function () {
-//   // console.log(bottomVisible());
-//   if (bottomVisible() && lookingForData === !1) {
-//     page++;
-//     fetchEvents();
-//   }
-// }, 100);
 
-// function bottomVisible() {
-//   const scrollY = window.scrollY;
-//   const visible = document.documentElement.clientHeight;
-//   const pageHeight = document.documentElement.scrollHeight;
-//   const bottomOfPage = visible + Math.round(scrollY) >= pageHeight;
-//   return bottomOfPage || pageHeight < visible;
-// }
+fetchProjects();
+
+setInterval(function () {
+  // console.log(bottomVisible());
+  if (bottomVisible() && lookingForData === !1) {
+    page++;
+    fetchProjects();
+  }
+}, 100);
+
+function bottomVisible() {
+  console.log("i work")
+  const scrollY = window.scrollY;
+  const visible = document.documentElement.clientHeight;
+  const pageHeight = document.documentElement.scrollHeight;
+  const bottomOfPage = visible + Math.round(scrollY) >= pageHeight;
+  console.log("i work now");
+  return bottomOfPage || pageHeight < visible;
+
+}
 
 function loopProj() {
   // let nodeListProj = document.querySelectorAll(".project");
