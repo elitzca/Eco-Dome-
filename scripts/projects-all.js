@@ -35,20 +35,20 @@ function fetchProjects() {
 }
 
 function showProjects(data) {
-  console.log(data);
+  // console.log(data);
   lookingForData = !1;
   data.forEach(showOneProject);
 }
 
 function showOneProject(aProject) {
-  console.log(aProject.id);
+  // console.log(aProject.id);
   let clone = template.cloneNode(!0);
   clone.querySelector("h1").textContent = aProject.title.rendered;
   clone.querySelector(".location").textContent = aProject.acf.location;
   clone.querySelector(".date").textContent = aProject.acf.date;
 
-  clone.querySelector(".excerpt-short").innerHTML = aProject.excerpt.rendered;
-  // clone.querySelector(".description").innerHTML = aProject.content.rendered;
+  clone.querySelector(".excerpt-short").innerHTML = aProject.acf.mobile_excerpt;
+  clone.querySelector(".excerpt-long").innerHTML = aProject.excerpt.rendered;
   clone
     .querySelector("img")
     .setAttribute(
@@ -89,7 +89,7 @@ function loopProj() {
   let projArr = [...document.querySelectorAll(".project")];
   let arrUpArr = [...document.querySelectorAll(".desc-arr-proj-up")];
   let arrDownArr = [...document.querySelectorAll(".desc-arr-proj-down")];
-  console.log(arrUpArr, arrDownArr);
+  // console.log(arrUpArr, arrDownArr);
   // console.log(nodeListProj, nodeListProj.length);
   // console.log(HTMLCollectionProj, HTMLCollectionProj.length);
   // console.log(projArr);
@@ -227,4 +227,38 @@ function loopProj() {
       }
     })
   }
+}
+
+
+fetch("http://eco-dome.eu/wp-json/wp/v2/categories?per_page=100&orderby=id&desc")
+  .then(e => e.json())
+  .then(buildMenu)
+
+function buildMenu(data) {
+  console.log(data);
+  let parentElement = document.querySelector("#menu-projs");
+  data.forEach(item => {
+    // console.log(item.parent);
+    if (item.count > 0) {
+      let li = document.createElement("li");
+      let a = document.createElement("a");
+      let ul;
+      a.textContent = item.name;
+      a.href = "projects-all.html?category=" + item.id;
+      li.appendChild(a);
+
+      // if (item.parent == 0 && item.count > 1) {
+      //   ul = document.createElement("ul")
+      //   ul.classList.add("cat-" + item.id)
+      //   li.appendChild(ul)
+
+      //   console.log(ul, li)
+      // } else if (item.parent > 0) {
+      //   parentElement = document.querySelector(".cat-" + item.parent)
+      //   // li.classList.add("bullet")
+      // }
+      console.log(parentElement)
+      parentElement.appendChild(li)
+    }
+  })
 }

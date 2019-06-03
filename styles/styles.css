@@ -910,6 +910,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 .img-cont {
   max-width: 760px;
+  max-height: 90vh;
   margin: auto;
   border: #fff solid 3px;
   background-color: #fff;
