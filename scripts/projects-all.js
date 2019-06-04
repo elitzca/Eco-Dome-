@@ -22,7 +22,7 @@ function fetchProjects() {
       .then(e => e.json())
       .then(showProjects)
       .then(loopProj)
-      .catch(function() {
+      .catch(function () {
         newPage = false;
       });
   } else {
@@ -31,15 +31,15 @@ function fetchProjects() {
       page
     )
       .then(e => e.json())
-      .then(function(response) {
-        if (response)  {
+      .then(function (response) {
+        if (response) {
 
           showProjects(response);
           loopProj(response);
         }
         console.log("ok", response);
       })
-      .catch(function() {
+      .catch(function () {
         newPage = false;
       });
   }
@@ -101,7 +101,7 @@ fetchProjects();
 let last_known_scroll_position = 0;
 let ticking = false;
 
-window.addEventListener('scroll', function(e) {
+window.addEventListener('scroll', function (e) {
   if (newPage) {
     last_known_scroll_position = window.scrollY;
 
@@ -120,12 +120,10 @@ window.addEventListener('scroll', function(e) {
 });
 
 function bottomVisible() {
-  console.log("i work")
   const scrollY = window.scrollY;
   const visible = document.documentElement.clientHeight;
   const pageHeight = document.documentElement.scrollHeight;
   const bottomOfPage = visible + Math.round(scrollY) >= pageHeight;
-  console.log("i work now");
   return bottomOfPage || pageHeight < visible;
 
 }
@@ -151,12 +149,16 @@ function loopProj() {
         tlM1 = new TimelineLite();
 
         let descGrad = event.target.parentElement.parentElement;
-        console.log(event.target.nextElementSibling);
+        let shortDesc = event.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling;
+        // console.log(event.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling);
         tlM1
           .to(descGrad, 0.3, {
             top: "0",
             ease: Power1.easeOut
           })
+          .to(shortDesc, 0.3, {
+            opacity: 1
+          }, "-=0.3")
           .fromTo(event.target, 0.3, {
             display: "inherit",
             opacity: 1
@@ -183,12 +185,16 @@ function loopProj() {
         tlM2 = new TimelineLite();
 
         let descGrad = event.target.parentElement.parentElement;
-        console.log(event.target.previousElementSibling);
+        let shortDesc = event.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling;
+        // console.log(event.target.previousElementSibling);
         tlM2
           .to(descGrad, 0.3, {
             top: "41%",
             ease: Power1.easeOut
           })
+          .to(shortDesc, 0.3, {
+            opacity: 0
+          }, "-=0.3")
           .fromTo(event.target, 0.3, {
             display: "inherit",
             opacity: 1
@@ -211,18 +217,18 @@ function loopProj() {
   } else {
 
     projArr.forEach(proj => {
-      console.log('proj',proj);
+      console.log('proj', proj);
       proj.addEventListener("mouseenter", scaleUp);
       proj.addEventListener("mouseleave", scaleDown);
 
       function scaleUp(event) {
         // let li = event.target.childNodes[1];
-        // let anchor = event.target.childNodes[1].childNodes[0];
+        let readMore = event.target.childNodes[5].childNodes[1].childNodes[0];
         tlD1 = new TimelineLite();
         //
         // li.addEventListener("mouseover", keepScaled);
         // anchor.addEventListener("mouseover", keepScaled2);
-
+        // console.log(event.target.childNodes[5].childNodes[1].childNodes[0])
         tlD1
           .to(".project", 0.3, {
             scale: 0.97,
@@ -231,6 +237,10 @@ function loopProj() {
           .to(event.target, 0.3, {
             scale: 1.1,
             ease: Power1.easeOut
+          }, "-=0.3")
+          .to(readMore, 0.3, {
+            color: "#d31935",
+            fontWeight: "bolder"
           }, "-=0.3")
           // .to(anchor, 0.5, {
           //   color: "#e60056",
@@ -261,6 +271,7 @@ function loopProj() {
 
       function scaleDown(event) {
         let tlD4 = new TimelineLite();
+        let readMore = event.target.childNodes[5].childNodes[1].childNodes[0];
 
         tlD4
           .to(".project", 0.3, {
@@ -270,6 +281,10 @@ function loopProj() {
           .to(event.target.parentElement, 0.3, {
             scale: 1,
             ease: Power1.easeOut
+          }, "-=0.3")
+          .to(readMore, 0.3, {
+            color: "#007fc9",
+            fontWeight: "normal"
           }, "-=0.3")
           ;
       }
@@ -288,7 +303,7 @@ function buildMenu(data) {
   let categories = [];
   data.forEach(item => {
 
-    // console.log('item', item);
+    console.log('item', item, "item parent", item.parent);
     if (item.parent === 0) {
       if (categories[item.id] === undefined) {
         categories[item.id] = [];
@@ -307,27 +322,27 @@ function buildMenu(data) {
     }
     //
     //
-  //   if (item.count > 0) {
-  //     let li = document.createElement("li");
-  //     let a = document.createElement("a");
-  //     let ul;
-  //     a.textContent = item.name;
-  //     a.href = "projects-all.html?category=" + item.id;
-  //     li.appendChild(a);
-  //
-  //     if (item.parent == 0 && item.count > 1) {
-  //       ul = document.createElement("ul")
-  //       ul.classList.add("cat-" + item.id)
-  //       li.appendChild(ul)
-  //
-  //       console.log(ul, li)
-  //     } else if (item.parent > 0) {
-  //       parentElement = document.querySelector(".cat-" + item.parent)
-  //       // li.classList.add("bullet")
-  //     }
-  //     console.log(parentElement)
-  //     parentElement.appendChild(li)
-  //   }
+    //   if (item.count > 0) {
+    //     let li = document.createElement("li");
+    //     let a = document.createElement("a");
+    //     let ul;
+    //     a.textContent = item.name;
+    //     a.href = "projects-all.html?category=" + item.id;
+    //     li.appendChild(a);
+    //
+    //     if (item.parent == 0 && item.count > 1) {
+    //       ul = document.createElement("ul")
+    //       ul.classList.add("cat-" + item.id)
+    //       li.appendChild(ul)
+    //
+    //       console.log(ul, li)
+    //     } else if (item.parent > 0) {
+    //       parentElement = document.querySelector(".cat-" + item.parent)
+    //       // li.classList.add("bullet")
+    //     }
+    //     console.log(parentElement)
+    //     parentElement.appendChild(li)
+    //   }
   })
 
 
