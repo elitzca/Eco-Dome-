@@ -908,6 +908,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 /* PROJECT SINGLE */
 /* PROJECT SINGLE */
 
+#aProject div{
+  font-weight: 600;
+  width: 85%;
+  margin: 0 8% 0 7%;
+}
+
+#aProject div span, .proj-content {
+  font-weight: 300;
+}
+
+.proj-content
+
 .img-cont {
   max-width: 760px;
   max-height: 90vh;
@@ -927,3 +939,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
 }
+
+@media only screen and (max-width: 1024px){
+  #aProject h1{
+    width: 80%;
+    margin: 0 10%;
+    padding: 10% 0;
+    text-align: center;
+  }
+}
+
