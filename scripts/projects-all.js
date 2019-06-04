@@ -2,7 +2,7 @@ let template = document.querySelector("#projtemplate").content;
 let projlist = document.querySelector("#projlist");
 let page = 0;
 let newPage = true;
-let per_page = 2;
+let per_page = 6;
 let lookingForData = !1;
 let mobileMedia = window.matchMedia("(max-width: 750px)");
 let tlD1, tlD2, tlD3, tlD4, tlM1, tlM2;
@@ -240,7 +240,6 @@ function loopProj() {
           }, "-=0.3")
           .to(readMore, 0.3, {
             color: "#d31935",
-            fontWeight: "bolder"
           }, "-=0.3")
           // .to(anchor, 0.5, {
           //   color: "#e60056",
@@ -283,8 +282,7 @@ function loopProj() {
             ease: Power1.easeOut
           }, "-=0.3")
           .to(readMore, 0.3, {
-            color: "#007fc9",
-            fontWeight: "normal"
+            color: "#ca7728",
           }, "-=0.3")
           ;
       }

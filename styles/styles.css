@@ -909,7 +909,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     position: relative;
     padding: 3% 0;
     color: #007fc9;
+    color: #ca7728;
     text-decoration: underline;
+    font-weight: 900;
   }
 }
 
@@ -921,14 +923,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 /* PROJECT SINGLE */
 /* PROJECT SINGLE */
 
-#aProject div{
+
+
+#aProject > div{
   font-weight: 600;
-  width: 85%;
-  margin: 0 8% 0 7%;
+  width: 90%;
+  margin: 0 5% 0 5%;
 }
 
-#aProject div span, .proj-content {
-  font-weight: 300;
+#aProject div span, .about-proj {
+  font-weight: 300 !important;
 }
 
 #aProject div .text-content {
@@ -951,7 +955,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   margin: auto;
   border: #fff solid 3px;
   background-color: #fff;
-  margin: 0 0 15% 0;
+  
 }
 
 .main-img img, 
@@ -963,8 +967,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .imgs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
+  grid-gap: 2px;
 }
+
+.imgs img{
+  opacity: 0.6;
+}
+
+.fullOpacity{
+  opacity: 1;
+}
+
+.back-btn a{
+  text-decoration: underline;
+  color: #aa6524;
+
+}
+
+.back-btn a:hover {
+  color: #cf823a;
+  
+}
+
 
 @media only screen and (max-width: 1024px){
   #aProject h1{
@@ -972,6 +996,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     margin: 0 10%;
     padding: 10% 0;
     text-align: center;
+  }
+  
+  .about-proj{
+    margin: 5% 0 10% 0;
+  }
+  
+  #aProject .img-cont{
+    margin: 0 0 10% 0;
+  }
+  
+  .back-btn{
+    margin: 0 0 10% 0;
   }
 }
 
@@ -987,9 +1023,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     margin: 10%;
   }
 
-  .proj-content {
+  #aProject h1 {
+    text-align: left;
+    padding: 3% 0 0 0;
+    margin: 0 0 5% 5%;
+    font-size: 2em;
+  }
+  
+  .proj-cont {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 50%;
+    grid-gap: 10%;
+  }
+  
+  .info{
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  
+  .info div{
+    margin: 0 0 3% 0;
+  }
+  
+  .info .about-proj{
+    margin: 10% 0 0 0;
   }
 
   #aProject .img-cont{
@@ -1002,5 +1059,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     width: 100%;
     margin: 0;
   }
+  
 
 }

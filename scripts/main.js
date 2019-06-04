@@ -95,7 +95,7 @@ function animateLandingPage() {
 
         function loopDivs() {
             divArray.forEach(div => {
-                div.addEventListener("mouseover", showDetails);
+                div.addEventListener("mouseenter", showDetails);
                 div.addEventListener("mouseleave", hideDetails);
 
 
