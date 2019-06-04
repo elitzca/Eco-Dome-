@@ -1,6 +1,8 @@
 let template = document.querySelector("#projtemplate").content;
 let projlist = document.querySelector("#projlist");
-let page = 1;
+let page = 0;
+let newPage = true;
+let per_page = 2;
 let lookingForData = !1;
 let mobileMedia = window.matchMedia("(max-width: 750px)");
 let tlD1, tlD2, tlD3, tlD4, tlM1, tlM2;
@@ -10,36 +12,52 @@ function fetchProjects() {
   let urlParameters = new URLSearchParams(window.location.search);
   console.log(urlParameters);
   let catid = urlParameters.get("category");
-  // if (catid) {
-  //   fetch(
-  //     "http://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=6&page=" +
-  //     page +
-  //     "&categories=" +
-  //     catid
-  //   )
-  //     .then(e => e.json())
-  //     .then(showProjects)
-  //     .then(loopProj);
-  // } else {
-  //   fetch(
-  //     "http://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=6&page=" +
-  //     page
-  //   )
-  //     .then(e => e.json())
-  //     .then(showProjects)
-  //     .then(loopProj);
-  // }
-  fetch(
-    "https://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=1"
-    + page
-  )
-    .then(e => e.json())
-    .then(showProjects)
-    .then(loopProj);
+  if (catid) {
+    fetch(
+      "http://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=" + per_page + "&offset=" +
+      page +
+      "&categories=" +
+      catid
+    )
+      .then(e => e.json())
+      .then(showProjects)
+      .then(loopProj)
+      .catch(function() {
+        newPage = false;
+      });
+  } else {
+    fetch(
+      "http://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=" + per_page + "&offset=" +
+      page
+    )
+      .then(e => e.json())
+      .then(function(response) {
+        if (response)  {
+
+          showProjects(response);
+          loopProj(response);
+        }
+        console.log("ok", response);
+      })
+      .catch(function() {
+        newPage = false;
+      });
+  }
+  // fetch(
+  //   "https://eco-dome.eu/wp-json/wp/v2/projects?_embed&per_page=1"
+  //   + page
+  // )
+  //   .then(e => e.json())
+  //   .then(showProjects)
+  //   .then(loopProj);
 }
 
 function showProjects(data) {
-  // console.log(data);
+  console.log(data);
+  // CHECK WHETHER THERE MORE POSTS
+  if (data.length < per_page) {
+    newPage = false;
+  }
   lookingForData = !1;
   data.forEach(showOneProject);
 }
@@ -73,13 +91,33 @@ function showOneProject(aProject) {
 
 fetchProjects();
 
-setInterval(function () {
-  // console.log(bottomVisible());
-  if (bottomVisible() && lookingForData === !1) {
-    page++;
-    fetchProjects();
+// setInterval(function () {
+//   // console.log(bottomVisible());
+//   if (bottomVisible() && lookingForData === !1) {
+//     page++;
+//     fetchProjects();
+//   }
+// }, 100);
+let last_known_scroll_position = 0;
+let ticking = false;
+
+window.addEventListener('scroll', function(e) {
+  if (newPage) {
+    last_known_scroll_position = window.scrollY;
+
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        if (bottomVisible() && lookingForData === !1) {
+          page += per_page;
+          fetchProjects();
+        }
+        ticking = false;
+      });
+
+      ticking = true;
+    }
   }
-}, 100);
+});
 
 function bottomVisible() {
   console.log("i work")
@@ -173,51 +211,52 @@ function loopProj() {
   } else {
 
     projArr.forEach(proj => {
-      proj.addEventListener("mouseover", scaleUp);
+      console.log('proj',proj);
+      proj.addEventListener("mouseenter", scaleUp);
       proj.addEventListener("mouseleave", scaleDown);
 
       function scaleUp(event) {
-        let li = event.target.childNodes[1];
-        let anchor = event.target.childNodes[1].childNodes[0];
+        // let li = event.target.childNodes[1];
+        // let anchor = event.target.childNodes[1].childNodes[0];
         tlD1 = new TimelineLite();
-
-        li.addEventListener("mouseover", keepScaled);
-        anchor.addEventListener("mouseover", keepScaled2);
+        //
+        // li.addEventListener("mouseover", keepScaled);
+        // anchor.addEventListener("mouseover", keepScaled2);
 
         tlD1
           .to(".project", 0.3, {
             scale: 0.97,
             ease: Power1.easeOut
           })
-          .to(event.target.parentElement, 0.3, {
+          .to(event.target, 0.3, {
             scale: 1.1,
             ease: Power1.easeOut
           }, "-=0.3")
-          .to(anchor, 0.5, {
-            color: "#e60056",
-            fontWeight: "bold"
-          }, "-=0.3")
+          // .to(anchor, 0.5, {
+          //   color: "#e60056",
+          //   fontWeight: "bold"
+          // }, "-=0.3")
           ;
 
-        function keepScaled(event) {
-          tlD2 = new TimelineLite();
-          let projParent = event.target.parentElement.parentElement;
-          console.log(event.target.parentElement.parentElement);
-          tlD2
-            .to(projParent, 0.001, {
-              scale: 1
-            })
-        }
-
-        function keepScaled2(event) {
-          tlD3 = new TimelineLite();
-          let projParent = event.target.parentElement.parentElement.parentElement;
-          console.log(event.target.parentElement.parentElement.parentElement);
-          tlD3
-            .to(projParent, 0.001, {
-              scale: 1.1
-            })
-        }
+        // function keepScaled(event) {
+        //   tlD2 = new TimelineLite();
+        //   let projParent = event.target.parentElement.parentElement;
+        //   console.log(event.target.parentElement.parentElement);
+        //   tlD2
+        //     .to(projParent, 0.001, {
+        //       scale: 1
+        //     })
+        // }
+        //
+        // function keepScaled2(event) {
+        //   tlD3 = new TimelineLite();
+        //   let projParent = event.target.parentElement.parentElement.parentElement;
+        //   console.log(event.target.parentElement.parentElement.parentElement);
+        //   tlD3
+        //     .to(projParent, 0.001, {
+        //       scale: 1.1
+        //     })
+        // }
       }
 
       function scaleDown(event) {
@@ -239,35 +278,59 @@ function loopProj() {
 }
 
 
-fetch("http://eco-dome.eu/wp-json/wp/v2/categories?per_page=100&orderby=id&desc")
+fetch("http://eco-dome.eu/wp-json/wp/v2/categories?per_page=100&orderby=id&order=asc")
   .then(e => e.json())
   .then(buildMenu)
 
 function buildMenu(data) {
-  console.log(data);
+  console.log('buildMenu', data);
   let parentElement = document.querySelector("#menu-projs");
+  let categories = [];
   data.forEach(item => {
-    // console.log(item.parent);
-    if (item.count > 0) {
-      let li = document.createElement("li");
-      let a = document.createElement("a");
-      let ul;
-      a.textContent = item.name;
-      a.href = "projects-all.html?category=" + item.id;
-      li.appendChild(a);
 
-      // if (item.parent == 0 && item.count > 1) {
-      //   ul = document.createElement("ul")
-      //   ul.classList.add("cat-" + item.id)
-      //   li.appendChild(ul)
-
-      //   console.log(ul, li)
-      // } else if (item.parent > 0) {
-      //   parentElement = document.querySelector(".cat-" + item.parent)
-      //   // li.classList.add("bullet")
-      // }
-      console.log(parentElement)
-      parentElement.appendChild(li)
+    // console.log('item', item);
+    if (item.parent === 0) {
+      if (categories[item.id] === undefined) {
+        categories[item.id] = [];
+        categories[item.id]['parent'] = [];
+        categories[item.id]['child'] = [];
+      }
+      // console.log('cate', categories);
+      categories[item.id]['parent'] = item;
+    } else {
+      if (categories[item.parent] === 'undefined') {
+        categories[item.parent] = [];
+        categories[item.parent]['parent'] = [];
+        categories[item.parent]['child'] = [];
+      }
+      categories[item.parent]['child'].push(item);
     }
+    //
+    //
+  //   if (item.count > 0) {
+  //     let li = document.createElement("li");
+  //     let a = document.createElement("a");
+  //     let ul;
+  //     a.textContent = item.name;
+  //     a.href = "projects-all.html?category=" + item.id;
+  //     li.appendChild(a);
+  //
+  //     if (item.parent == 0 && item.count > 1) {
+  //       ul = document.createElement("ul")
+  //       ul.classList.add("cat-" + item.id)
+  //       li.appendChild(ul)
+  //
+  //       console.log(ul, li)
+  //     } else if (item.parent > 0) {
+  //       parentElement = document.querySelector(".cat-" + item.parent)
+  //       // li.classList.add("bullet")
+  //     }
+  //     console.log(parentElement)
+  //     parentElement.appendChild(li)
+  //   }
   })
+
+
+  console.log('cate', categories);
+
 }

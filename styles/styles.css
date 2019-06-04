@@ -674,15 +674,19 @@ main {
   box-shadow: #4b4b4b 0 0 10px;
 }
 
+.img-wrap {
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
 .ft-img {
-  width: 100vw;
-  height: 35vh;
-  
-  top: 0;
-  left: 0;
-  
+  height: auto;
+  width: 100%;
+  transform: translate(0%, -50%);
   position: absolute;
-  z-index: -1;
+  top: 50%;
 }
 
 .bg-gradient{
@@ -845,10 +849,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   
   
   .ft-img{
-    width: 100%;
-    height: 100%;
-    max-height: 25vh;
-    position: initial;
+
   }
   
   .bg-gradient{
@@ -918,14 +919,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   font-weight: 300;
 }
 
-.proj-content
+#aProject div .text-content {
+  font-weight: 300;
+  width: 85%;
+  margin: 5% 8% 5% 7%;
+}
 
-.img-cont {
+#aProject .proj-content,  .img-cont {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+#aProject .img-cont {
   max-width: 760px;
   max-height: 90vh;
   margin: auto;
   border: #fff solid 3px;
   background-color: #fff;
+  margin: 0 0 15% 0;
 }
 
 .main-img img, 
@@ -949,3 +963,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   }
 }
 
+
+/* PROJECT*/
+/* DESKTOP*/
+@media only screen and (min-width: 1025px){
+  .main-subpage{
+    margin-top: 8vh;
+  }
+  #aProject{
+    width: 80%;
+    margin: 10%;
+  }
+
+  .proj-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  #aProject .img-cont{
+    grid-column-start: 2;
+    grid-column-end: -1;
+    width: 100%;
+  }
+
+  #aProject .main-img, #aProject .imgs {
+    width: 100%;
+    margin: 0;
+  }
+
+}

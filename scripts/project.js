@@ -22,6 +22,7 @@ function showProject(aProject) {
 
     document.querySelector(".proj-content").innerHTML = aProject.content.rendered;
 
+
     // document
     //     .querySelector("img")
     //     .setAttribute(
