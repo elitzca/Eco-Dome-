@@ -10,7 +10,7 @@ let tlD1, tlD2, tlD3, tlD4, tlM1, tlM2;
 function fetchProjects() {
   lookingForData = !0;
   let urlParameters = new URLSearchParams(window.location.search);
-  console.log(urlParameters);
+  // console.log(urlParameters);
   let catid = urlParameters.get("category");
   if (catid) {
     fetch(
@@ -37,7 +37,7 @@ function fetchProjects() {
           showProjects(response);
           loopProj(response);
         }
-        console.log("ok", response);
+        // console.log("ok", response);
       })
       .catch(function () {
         newPage = false;
@@ -53,7 +53,7 @@ function fetchProjects() {
 }
 
 function showProjects(data) {
-  console.log(data);
+  // console.log(data);
   // CHECK WHETHER THERE MORE POSTS
   if (data.length < per_page) {
     newPage = false;
@@ -217,7 +217,7 @@ function loopProj() {
   } else {
 
     projArr.forEach(proj => {
-      console.log('proj', proj);
+      // console.log('proj', proj);
       proj.addEventListener("mouseenter", scaleUp);
       proj.addEventListener("mouseleave", scaleDown);
 
@@ -296,54 +296,75 @@ fetch("http://eco-dome.eu/wp-json/wp/v2/categories?per_page=100&orderby=id&order
   .then(buildMenu)
 
 function buildMenu(data) {
-  console.log('buildMenu', data);
+  // console.log('buildMenu', data);
   let parentElement = document.querySelector("#menu-projs");
   let categories = [];
   data.forEach(item => {
 
-    console.log('item', item, "item parent", item.parent);
-    if (item.parent === 0) {
-      if (categories[item.id] === undefined) {
-        categories[item.id] = [];
-        categories[item.id]['parent'] = [];
-        categories[item.id]['child'] = [];
-      }
-      // console.log('cate', categories);
-      categories[item.id]['parent'] = item;
-    } else {
-      if (categories[item.parent] === 'undefined') {
-        categories[item.parent] = [];
-        categories[item.parent]['parent'] = [];
-        categories[item.parent]['child'] = [];
-      }
-      categories[item.parent]['child'].push(item);
+    // console.log('item', item, "item parent", item.parent);
+    // if (item.parent === 0) {
+    //   if (categories[item.id] === undefined) {
+    //     categories[item.id] = [];
+    //     categories[item.id]['parent'] = [];
+    //     categories[item.id]['child'] = [];
+    //   }
+    //   // console.log('cate', categories);
+    //   categories[item.id]['parent'] = item;
+    // } else {
+    //   if (categories[item.parent] === 'undefined') {
+    //     categories[item.parent] = [];
+    //     categories[item.parent]['parent'] = [];
+    //     categories[item.parent]['child'] = [];
+    //   }
+    //   categories[item.parent]['child'].push(item);
+    // }
+
+    // console.log('item', item, "item parent", item.parent);
+    // //
+    //
+    // if (item.parent == 0 && item.count > 1) {
+
+    if (item.parent == 0 && item.id != 1) {
+      let categoryTitle = item.name;
+      let categoryId = item.id;
+      let listProjects = document.querySelector('.list-projects');
+      // console.log('category title', categoryTitle)
+      // console.log('category id', categoryId)
+
+      listProjects.innerHTML += `<div class="category-type">
+      <p class="category-name">${categoryTitle}</p>
+      <ul id="${categoryId}" class="filter-list">
+      </ul>
+      </div>`;
+
+
     }
-    //
-    //
-    //   if (item.count > 0) {
-    //     let li = document.createElement("li");
-    //     let a = document.createElement("a");
-    //     let ul;
-    //     a.textContent = item.name;
-    //     a.href = "projects-all.html?category=" + item.id;
-    //     li.appendChild(a);
-    //
-    //     if (item.parent == 0 && item.count > 1) {
-    //       ul = document.createElement("ul")
-    //       ul.classList.add("cat-" + item.id)
-    //       li.appendChild(ul)
-    //
-    //       console.log(ul, li)
-    //     } else if (item.parent > 0) {
+
+    if (item.parent != 0 && item.count != 0) {
+      console.log(item.parent)
+      // console.log(document.getElementById(item.parent))
+      document.getElementById(item.parent).innerHTML += `<li><a href = "projects-all.html?category=${item.id}" >${item.name}</a></li>`
+    }
+
+    // if (item.count > 0) {
+    //   let li = document.createElement("li");
+    //   let a = document.createElement("a");
+    //   let ul;
+    //   a.textContent = item.name;
+    //   a.href = "projects-all.html?category=" + item.id;
+    //   li.appendChild(a);
+    //   parentElement.appendChild(li)
+    // }
+    // else if (item.parent > 0) {
     //       parentElement = document.querySelector(".cat-" + item.parent)
     //       // li.classList.add("bullet")
     //     }
     //     console.log(parentElement)
-    //     parentElement.appendChild(li)
+
     //   }
   })
 
 
-  console.log('cate', categories);
+  // console.log('cate', categories);
 
 }
