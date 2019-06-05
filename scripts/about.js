@@ -1,4 +1,6 @@
 // Get the H1 heading
+let desktopMedia = window.matchMedia("(min-width: 900px)")
+
 let imgOpen = document.querySelector("#open-div .img-div img");
 let imgAbout = document.querySelector("#about-domes-div .img-div img");
 let imgPurpose = document.querySelector("#dome-purpose-div .img-div img");
@@ -14,8 +16,16 @@ let boundingUs = imgUs.getBoundingClientRect();
 
 // Log the results
 // console.log(bounding);
-window.addEventListener("DOMContentLoaded", checkHeight);
-window.addEventListener("scroll", checkHeight);
+
+function checkMedia() {
+
+    if (desktopMedia.matches) {
+        window.addEventListener("DOMContentLoaded", checkHeight);
+        window.addEventListener("scroll", checkHeight);
+    }
+}
+
+checkMedia();
 
 function checkHeight() {
     let bottomY = window.pageYOffset + document.documentElement.clientHeight;
@@ -88,5 +98,7 @@ function animateUsImg() {
         }, "+=2")
     boundingUs = "";
 }
+
+
 
 
