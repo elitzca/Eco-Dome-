@@ -9,6 +9,8 @@ function checkMedia() {
     if (desktopMedia.matches) {
         window.addEventListener("DOMContentLoaded", checkHeight);
         window.addEventListener("scroll", checkHeight);
+
+        animServ();
     }
 }
 
@@ -48,4 +50,3 @@ function animServ() {
         }, 0.05)
 }
 
-animServ();
