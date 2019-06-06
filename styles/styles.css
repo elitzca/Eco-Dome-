@@ -1269,5 +1269,131 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     margin: auto;
   }
   
+}
+
+
+/* SERVICES */
+/* SERVICES */
+/* SERVICES */
+/* SERVICES */
+/* SERVICES */
+/* SERVICES */
+
+.services-bg {
+ /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e8faff+0,e8faff+92&1+0,1+85,0.7+92,0+100 */
+background: -moz-linear-gradient(top,  rgba(232,250,255,1) 0%, rgba(232,250,255,1) 85%, rgba(232,250,255,0.7) 92%, rgba(232,250,255,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(232,250,255,1) 0%,rgba(232,250,255,1) 85%,rgba(232,250,255,0.7) 92%,rgba(232,250,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(232,250,255,1) 0%,rgba(232,250,255,1) 85%,rgba(232,250,255,0.7) 92%,rgba(232,250,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8faff', endColorstr='#00e8faff',GradientType=0 ); /* IE6-9 */
+
+padding-bottom : 5%; 
+}
+
+#services-div {
+  width: 70%;
+  padding: 5% 15%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(16em,1fr));
+  grid-gap: 5%;
+}
+
+.service {
+  box-shadow: grey 0 0 70px;
+  background-color: #fff;
+}
+
+.service-img {
+  width: 100%;
+  height: 150px;
   
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#design-div .service-img {
+  background-image: url(../hdr-all/hdr-mickey-mouse-sceme.jpg);
+  /* background-image: url(../hdr-all/hdr-turnovo-3.jpg); */
+}
+
+#const-div .service-img {
+  background-image: url(../hdr-all/hdr-portrait-14.jpg);
+}
+
+#prod-div .service-img {
+  background-image: url(../hdr-all/hdr-portrait-10.jpg);
+}
+
+.service h1 {
+  width: 80%;
+  margin: 8% auto 5% auto;
+}
+
+.service p {
+  width: 85%;
+  margin: 0 auto 10% auto;
+  line-height: 1.2;
+  font-size: 0.95em;
+}
+
+
+
+
+
+/* SERVICES */
+/* DESKTOP */
+
+@media only screen and (min-width: 900px){
+  #main-services h1 {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .services-bg > h1 {
+    padding: 5% 0 2% 0
+  }
+  
+  .services-bg > p {
+    width: 50%;
+    margin: auto;
+    line-height: 1.2;
+  }
+  
+  
+  
+  .service {
+    width: 100%;
+    opacity: 0;
+  }
+  
+  .work-process {
+    width: 70%;
+    padding: 0 15% 5% 15%;
+    
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  
+
+  .process-img img{
+    width: 90%;
+    margin: auto 10% auto 0;
+    box-shadow: grey 0 0 30px;
+  }
+  
+  #main-services .work-process h1 {
+    width: 90%;
+    margin: 9% 0 9% 10%;
+    text-align: left;
+  }
+  
+  .work-process li{
+    margin-bottom: 2%;
+    list-style-type: unset;
+  }
+  
+  .work-process ol {
+    width: 90%;
+    margin: 0 0 0 10%;
+  }
 }
