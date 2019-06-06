@@ -640,6 +640,32 @@ a {
 
 /* MOBILE */
 
+.list-projects > p {
+  margin: 0 0 3%;
+  font-weight: bold;
+}
+
+.list-projects > li {
+  margin: 0 0 2% 0;
+}
+
+.category-type {
+  margin: 0 0 2% 0;
+}
+
+.filter-list {
+  width: 90%;
+  margin: 0 0 0 20px;
+}
+
+.filter-list li {
+  margin: 1% 0 1% 0;
+}
+
+.list-projects a{
+  color: #ca7728;
+}
+
 main {
   margin-top: 6vh;
 }
@@ -791,7 +817,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     display: none !important ;
   }
   
-  
+  .list-projects{
+    width: 80%;
+    margin: 0 5% 0 8%;
+  }
 }
 
 
@@ -807,7 +836,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     margin: 8vh 0 0 0;
     padding: 0 10vw;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 60% 40%;
   }
   
   .page-title{
@@ -815,18 +844,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     grid-column-end: -1;
   }
   
-  .text-left p  {
-    font-size: 0.9em;
-    /* width: 60%; */
+  .proj-texts > p {
+    width: 50%;
+    padding: 0 25%;
   }
   
-  .text-left .p1 {
-    /* margin: 5vh 0 5vh 10%; */
-  }
   
-  .text-left .p2 {
-    /* margin: 5vh 0 5vh 35%; */
-  }
+  
 
 .gallery-proj{
   width: 100vw;
@@ -1107,6 +1131,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   display: grid;
   grid-template-columns: 45% 45%;
   grid-gap: 10%;
+  grid-row-gap: 20%;
 }
 
 .partners-logo-div img {
@@ -1137,6 +1162,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   
   .grid-2 h1 {
     font-size: 1.9em;
+    margin: 10% 0 20% 0;
   }
   
   .grid-2 p {
@@ -1152,6 +1178,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   
   .text-about-div ul {
     line-height: 1.2;
+  }
+  
+  #partners-div {
+    margin: 0 0 30% 0;
   }
   
   
@@ -1260,7 +1290,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   }
   
   #partners-div {
-    margin-top: 5%;
+    margin: 10% 0 20% 0;
   }
   
   #partners-div h1{
@@ -1536,7 +1566,7 @@ padding-bottom : 5%;
     padding: 0 5% 5% 5%;
   }
   
-  .black-square{
+  #cont-main .black-square{
     width: 84vw;
   }
   
@@ -1590,4 +1620,52 @@ padding-bottom : 5%;
   }
   
   
+}
+
+
+/* FOOTER */
+/* FOOTER */
+/* FOOTER */
+/* FOOTER */
+
+footer {
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#828282+10,828282+100&0+0,0.1+10,0.4+44,0.5+100 */
+background: -moz-linear-gradient(top,  rgba(130,130,130,0) 0%, rgba(130,130,130,0.1) 10%, rgba(130,130,130,0.4) 44%, rgba(130,130,130,0.5) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(130,130,130,0) 0%,rgba(130,130,130,0.1) 10%,rgba(130,130,130,0.4) 44%,rgba(130,130,130,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(130,130,130,0) 0%,rgba(130,130,130,0.1) 10%,rgba(130,130,130,0.4) 44%,rgba(130,130,130,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00828282', endColorstr='#80828282',GradientType=0 ); /* IE6-9 */
+
+font-weight: bold;
+}
+
+.cont-footer {
+  width: 80%;
+  padding: 4% 0 2% 0%;
+  margin: 0 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(13em,1fr));
+  grid-column-gap: 5%;
+  grid-row-gap: 5%;
+}
+
+footer > h3 {
+  width: 80%;
+  padding: 0 10% 2% 10%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px){
+  .cont-footer h3{
+    margin: 3%;
+  }
+  
+  .cont-footer p {
+    margin: 2%;
+  }
+  
+  footer > h3 {
+    width: 78%
+    text-align: left;
+    padding: 14% 11% 10% 11%;
+  }
 }
